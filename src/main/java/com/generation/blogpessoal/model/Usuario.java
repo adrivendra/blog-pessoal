@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -38,7 +38,7 @@ public class Usuario {
 
 	@Size(max = 5000, message = "O link da foto deve conter no máximo 5000 caracteres")
 	private String foto;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
@@ -49,6 +49,17 @@ public class Usuario {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	public Usuario() {
 	}
 
 	public String getNome() {
