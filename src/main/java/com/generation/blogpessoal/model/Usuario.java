@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,7 +28,8 @@ public class Usuario {
 
 	@NotNull(message = "O nome é obrigatorio.")
 	private String nome;
-
+	
+	@Schema(example = "email@email.com.br")
 	@NotNull(message = "O usúario é obrigatorio.")
 	@Email(message = "O Email deve ser um email válido.")
 	private String usuario;
