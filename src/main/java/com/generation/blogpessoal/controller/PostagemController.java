@@ -1,4 +1,4 @@
-﻿package com.generation.blogpessoal.controller;
+package com.generation.blogpessoal.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,12 +38,6 @@ public class PostagemController {
 	@GetMapping
 	public ResponseEntity<List<Postagem>> getAll() {
 		return ResponseEntity.ok(postagemRepository.findAll());
-	}
-
-	@GetMapping("/exemplo")
-	public ResponseEntity<String> exemplo() {
-		String ola = "Ola Mundo";
-		return ResponseEntity.ok(ola);
 	}
 
 	@GetMapping("/{id}")
